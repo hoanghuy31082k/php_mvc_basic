@@ -16,8 +16,15 @@
             }
         }
         ?>
-       
-    
+        <input type="hidden" name="idPost" value="<?php echo $post->id?>"/>
+    <div class="form-group">
+        <label for="title-post">Title post</label>
+        <input type="text" name="titlePost" class="form-control" value="<?php if(isset($post->title)) {echo $post->title;} ?>" id="title-post" aria-describedby="emailHelp" placeholder="Enter title post">
+    </div>
+    <div class="form-group">
+        <label for="content-post">Content post</label>
+        <input type="text" name="contentPost" class="form-control" value="<?php if(isset($post->content)) {echo $post->content;} ?>" id="content-post" placeholder="Content...">
+    </div>
     <button name="submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

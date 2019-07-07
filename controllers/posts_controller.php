@@ -30,6 +30,8 @@ class PostsController extends BaseController
     public function delete()
     {
         if (isset($_POST['submit'])) {
+            //Chua co truyen bien len :))) 
+            // Copy code con` xoa' =)) xoa' sai cho~ no' k chay. la dung' roi 
             $id = $_POST['idPost'];
             $titlePost = $_POST['titlePost'];
             $contentPost = $_POST['contentPost'];
