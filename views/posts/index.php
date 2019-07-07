@@ -24,7 +24,7 @@
         </td>';
         echo '<td scope="row">
           <a class="btn btn-warning" href="index.php?controller=posts&action=update&id=' .$post->id. '">Update</a>
-          <a class="btn btn-danger" href="index.php?controller=posts&action=delete=' .$post->id. '">Delete</a>
+          <a class="btn btn-danger" href="index.php?controller=posts&action=delete&id=' .$post->id. '">Delete</a>
         </td>';
         echo '</tr>';
     }

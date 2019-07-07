@@ -27,6 +27,23 @@ class PostsController extends BaseController
             $this->render('add');
         }
     }
+    public function delete()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_POST['idPost'];
+            $titlePost = $_POST['titlePost'];
+            $contentPost = $_POST['contentPost'];
+            $post = new Post($id, $titlePost, $contentPost);
+            $result = Post::delete($post);
+            $result = array('result' => $result);
+            $_POST = array();
+            $this->render('delete', $result);
+        } else {
+            $post = Post::find($_GET['id']);
+            $data = array('post' => $post);
+            $this->render('delete', $data);
+        }
+    }
     public function update()
     {
         if (isset($_POST['submit'])) {

@@ -36,7 +36,26 @@ class Post
                 $result['message'] = "Add success";
             } else {
                 $result['status'] = false;
-                $result['message'] = "Something when wrong. Please try again!";
+                $result['message'] = "Something's wrong. Please try again!";
+            }
+        } catch (Exception $e) {
+            $result['status'] = false;
+            $result['message'] = var_dump($e->getMessage());
+        }
+        return $result;
+    }
+    public static function delete($post)
+    {
+        $result = array('status', 'message');
+        try {
+            $db = DB::getInstance();
+            $query = "DELETE FROM POSTS WHERE id = " . $post->id . ";";
+            if ($db->exec($query) !== false) {
+                $result['status'] = true;
+                $result['message'] = "Delete success";
+            } else {
+                $result['status'] = false;
+                $result['message'] = "Something's wrong. Please try again!";
             }
         } catch (Exception $e) {
             $result['status'] = false;
@@ -58,7 +77,7 @@ class Post
                 $result['message'] = "Update success";
             } else {
                 $result['status'] = false;
-                $result['message'] = "Something when wrong. Please try again!";
+                $result['message'] = "Something's wrong. Please try again!";
             }
         } catch (Exception $e) {
             $result['status'] = false;
